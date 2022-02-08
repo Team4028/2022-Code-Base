@@ -39,16 +39,18 @@ public class TestingEther extends SubsystemBase {
 
     _enc = _MotorThree.getEncoder();
     _enc.setPosition(0);
+
+    _MotorThree.setInverted(true);
  
   }
 
   public void runMotorOneAndTwo(){
-    //_MotorOne.set(ControlMode.PercentOutput, .6);
+    _MotorOne.set(ControlMode.PercentOutput, .6);
     _MotorTwo.set(.6);
   }
 
   public void runThree(){
-    _MotorThree.set(-.5);
+    _MotorThree.set(0.5);
   }
 
   public void stopThree(){
@@ -61,28 +63,20 @@ public class TestingEther extends SubsystemBase {
     _MotorThree.set(0);
   }
 
-  public void runMotorWithEncoder(){
-    if (_enc.getPosition()>150)
+  public void runMotorWithEncoder(double target, double vbus){
+    if (_enc.getPosition()<target)
     {
       _MotorThree.set(0);
     }
     else{
-      _MotorThree.set(-.2);
+      _MotorThree.set(vbus);
     }
     
   }
 
-  public void runMotorThreeWithEncoderA(){
-    if (_enc.getPosition()>-20)
-    {
-      _MotorThree.set(-.5);
-      System.out.println(_enc.getPosition());
-    }
-    else{
-      _MotorThree.set(0);
-    }
+  
 
-  }
+  
 
   public void runFiveSix(){
     _MotorFive.set(ControlMode.PercentOutput, .4);

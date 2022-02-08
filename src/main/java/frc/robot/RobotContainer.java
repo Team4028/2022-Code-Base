@@ -46,9 +46,9 @@ public class RobotContainer {
   private void configureButtonBindings() {
   _Controller.y.toggleWhenPressed(_TEcom);
   _Controller.b.whenPressed(_RunWithEncoder);
-  //_Controller.x.toggleWhenPressed(_TFiveAndSixCom);
+  _Controller.x.toggleWhenPressed(_TFiveAndSixCom);
   _Controller.a.whenPressed(_RunWithEncoderA);
-  _Controller.x.toggleWhenPressed(_TThree);
+  _Controller.back.toggleWhenPressed(_TThree);
   }
 
   /**
