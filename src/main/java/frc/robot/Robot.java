@@ -7,6 +7,10 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.InfeedCommand;
+import frc.robot.commands.SingulatorCommand;
+import frc.robot.subsystems.Infeed;
+import frc.robot.subsystems.Singulator;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -15,7 +19,8 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  * project.
  */
 public class Robot extends TimedRobot {
-
+  private static InfeedCommand _InCommand = new InfeedCommand();
+  private static SingulatorCommand _SingCommand = new SingulatorCommand();
 
   private RobotContainer m_robotContainer;
 
@@ -75,7 +80,10 @@ public class Robot extends TimedRobot {
 
   /** This function is called periodically during operator control. */
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+   //_InCommand.schedule();
+   //_SingCommand.schedule();
+  }
 
   @Override
   public void testInit() {
