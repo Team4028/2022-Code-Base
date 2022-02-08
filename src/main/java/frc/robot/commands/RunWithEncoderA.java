@@ -18,13 +18,13 @@ public class RunWithEncoderA extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    _TestEther.runMotorThreeWithEncoderA();
+    _TestEther.runMotorWithEncoder(40, .2);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    _TestEther.runMotorThreeWithEncoderA();
+    _TestEther.runMotorWithEncoder(40, .2);
   }
 
   // Called once the command ends or is interrupted.
