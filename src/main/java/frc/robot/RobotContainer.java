@@ -8,6 +8,12 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.commands.RunWithEncoder;
+import frc.robot.commands.RunWithEncoderA;
+import frc.robot.commands.ToggleFiveAndSix;
+import frc.robot.commands.ToggleOneAndTwo;
+import frc.robot.commands.ToggleThree;
+import frc.robot.subsystems.TestingEther;
 
 /**
  * This class is where the bulk of the robot should be declared. Since Command-based is a
@@ -17,11 +23,18 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
+  private final ToggleOneAndTwo _TEcom = new ToggleOneAndTwo();
+  private BeakXBoxController _Controller = new BeakXBoxController(0);
+  private RunWithEncoder _RunWithEncoder = new RunWithEncoder();
+  private final ToggleFiveAndSix _TFiveAndSixCom = new ToggleFiveAndSix();
+  private RunWithEncoderA _RunWithEncoderA = new RunWithEncoderA();
+  private final ToggleThree _TThree = new ToggleThree();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+
   }
 
   /**
@@ -31,8 +44,11 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-
-    
+  _Controller.y.toggleWhenPressed(_TEcom);
+  _Controller.b.whenPressed(_RunWithEncoder);
+  //_Controller.x.toggleWhenPressed(_TFiveAndSixCom);
+  _Controller.a.whenPressed(_RunWithEncoderA);
+  _Controller.x.toggleWhenPressed(_TThree);
   }
 
   /**
